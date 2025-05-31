@@ -1,9 +1,18 @@
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
 
+type Project = {
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  tags: string[];
+  link?: string;
+};
+
 const PortfolioSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projects = [
     {
       title: "E-Commerce Website",
@@ -164,17 +173,17 @@ const PortfolioSection = () => {
               &times;
             </button>
             <h2 className="text-2xl font-bold text-white mb-4">
-              {selectedProject.title}
+              {selectedProject!.title}
             </h2>
             <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
+              src={selectedProject!.image}
+              alt={selectedProject!.title}
               className="w-full rounded mb-4"
             />
-            <p className="text-gray-300 mb-4">{selectedProject.description}</p>
-            {selectedProject.link && (
+            <p className="text-gray-300 mb-4">{selectedProject!.description}</p>
+            {selectedProject!.link && (
               <a
-                href={selectedProject.link}
+                href={selectedProject!.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
