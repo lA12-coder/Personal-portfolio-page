@@ -3,14 +3,16 @@ import { useState } from "react";
 
 const PortfolioSection = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
   const projects = [
     {
       title: "E-Commerce Website",
       category: "Web Development",
-      image: "/ecomerce.png", // Set to actual image path in public folder
+      image: "/ecomerce.png",
       description:
         "A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      link: "#", // Add your project link here
     },
     {
       title: "Travel Blog Platform",
@@ -19,6 +21,7 @@ const PortfolioSection = () => {
       description:
         "A content management system for travel bloggers with media management and SEO optimization.",
       tags: ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
+      link: "#", // Add your project link here
     },
     {
       title:
@@ -28,6 +31,7 @@ const PortfolioSection = () => {
       description:
         "A collaborative platform for Ethiopian university students to share resources, collaborate on projects, and enhance their learning experience.",
       tags: ["Figma"],
+      link: "https://www.figma.com/proto/QVUtmws7BL7LYN3ZbPkLzq/E-hub-for-University-Students-Across-Ethiopia?node-id=1-60&starting-point-node-id=2343%3A366&t=jOBX5VB1wxgsmhAv-1",
     },
     // {
     //   title: "AI Content Generator",
@@ -101,7 +105,10 @@ const PortfolioSection = () => {
                 )}
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 to-blue-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <button className="px-6 py-3 rounded-lg bg-white text-gray-900 font-medium flex items-center space-x-2 hover:bg-gray-100 transition-colors duration-300">
+                  <button
+                    className="px-6 py-3 rounded-lg bg-white text-gray-900 font-medium flex items-center space-x-2 hover:bg-gray-100 transition-colors duration-300"
+                    onClick={() => setSelectedProject(project)}
+                  >
                     <span>View Project</span>
                     <ExternalLink className="h-4 w-4" />
                   </button>
@@ -144,6 +151,40 @@ const PortfolioSection = () => {
           </button>
         </div>
       </div>
+
+      {/* Modal for project details */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="bg-gray-900 rounded-xl p-8 max-w-lg w-full relative">
+            <button
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+              onClick={() => setSelectedProject(null)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {selectedProject.title}
+            </h2>
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="w-full rounded mb-4"
+            />
+            <p className="text-gray-300 mb-4">{selectedProject.description}</p>
+            {selectedProject.link && (
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              >
+                Visit Project <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

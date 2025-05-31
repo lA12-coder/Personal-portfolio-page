@@ -70,7 +70,7 @@ const AboutSection = () => {
                 <div>
                   <h4 className="text-white font-medium">Education</h4>
                   <p className="text-gray-400 text-sm">
-                    Computer Science Degree
+                    Software Engineering Degree
                   </p>
                 </div>
               </div>
