@@ -1,4 +1,4 @@
-import { User, Award, BookOpen } from 'lucide-react';
+import { Award, BookOpen } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -22,7 +22,7 @@ const AboutSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center text-gray-600"></div>
 
                 <img
-                  src="public\portfolio image2.jpg"
+                  src="/portfolio image2.jpg"
                   alt="Profile"
                   className="w-full object-cover"
                 />
@@ -78,7 +78,12 @@ const AboutSection = () => {
 
             <div className="pt-6">
               <button className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                <a href="https://drive.google.com/uc?export=download&id=1yo3AFFN9qRU7uoAxSYQCMm9cXa81m2c2" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1yo3AFFN9qRU7uoAxSYQCMm9cXa81m2c2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
                   Download Resume
                 </a>
               </button>
