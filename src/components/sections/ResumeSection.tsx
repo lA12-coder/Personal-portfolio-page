@@ -21,7 +21,7 @@ const ResumeSection = () => {
       company: "INSA (Information Network Security Administration)",
       period: "2024 - 2025",
       description:
-        "Developed and maintained websites for small to medium businesses. Worked with HTML, CSS, JavaScript, and various CMS platforms.",
+        "Developed and maintained websites for small to medium businesses. Worked with React, Django, REST API, and various CMS platforms.",
     },
   ];
 
@@ -41,13 +41,16 @@ const ResumeSection = () => {
     { name: "React", level: 85 },
     { name: "TypeScript", level: 80 },
     { name: "UI/UX Design", level: 85 },
-    { name: "Node.js", level: 75 },
+    { name: "Node.js", level: 50 },
     { name: "Tailwind CSS", level: 90 },
     { name: "Figma", level: 80 },
-    { name: "Django", level: 40 },
-    { name: "MySQL", level: 70 },
+    { name: "Django", level: 90 },
+    { name: "MySQL", level: 80 },
     { name: "Git & GitHub", level: 80 },
     { name: "Agile Methodologies", level: 75 },
+    { name: "RESTful APIs", level: 75 },
+    { name: "Adobe Photoshop", level: 80 },
+    { name: "Adobe Illustrator", level: 70 },
   ];
 
   return (
@@ -62,7 +65,7 @@ const ResumeSection = () => {
           </p>
           <div className="mt-6 flex justify-center">
             <a
-              href="https://drive.google.com/uc?export=download&id=1yo3AFFN9qRU7uoAxSYQCMm9cXa81m2c2"
+              href="https://drive.google.com/uc?export=download&id=1kRAseGbHdd5ZtOgTQ6Te2q-SrGYPm4WQ"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 flex items-center"

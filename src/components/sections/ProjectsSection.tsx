@@ -8,41 +8,6 @@ const ProjectsSection = () => {
       description: "A full-featured e-commerce platform with product management, shopping cart, payment processing, and order tracking.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
       link: "#"
-    },
-    {
-      title: "Mobile Banking App",
-      icon: <Smartphone className="h-10 w-10 text-blue-500" />,
-      description: "A secure mobile banking application with transaction history, fund transfers, bill payments, and account management.",
-      technologies: ["React Native", "Redux", "Firebase", "Biometric Authentication"],
-      link: "#"
-    },
-    {
-      title: "Content Management System",
-      icon: <Layout className="h-10 w-10 text-pink-500" />,
-      description: "A custom CMS for digital content creators with rich text editing, media management, and publishing workflows.",
-      technologies: ["Next.js", "GraphQL", "PostgreSQL", "AWS S3"],
-      link: "#"
-    },
-    {
-      title: "Real-time Analytics Dashboard",
-      icon: <Database className="h-10 w-10 text-green-500" />,
-      description: "An interactive dashboard for visualizing business metrics and KPIs with real-time data updates and customizable views.",
-      technologies: ["Vue.js", "D3.js", "Socket.io", "Express"],
-      link: "#"
-    },
-    {
-      title: "API Gateway Service",
-      icon: <Server className="h-10 w-10 text-yellow-500" />,
-      description: "A microservice gateway that handles authentication, rate limiting, and request routing for a distributed system.",
-      technologies: ["Go", "Docker", "Kubernetes", "Redis"],
-      link: "#"
-    },
-    {
-      title: "Code Collaboration Tool",
-      icon: <Code className="h-10 w-10 text-indigo-500" />,
-      description: "A web-based platform for real-time code collaboration, with syntax highlighting, version control, and video chat.",
-      technologies: ["TypeScript", "WebRTC", "Monaco Editor", "Git Integration"],
-      link: "#"
     }
   ];
 

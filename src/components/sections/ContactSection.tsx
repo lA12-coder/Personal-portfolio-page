@@ -1,5 +1,20 @@
+/**
+ * ContactSection Component
+ *
+ * IMPORTANT: Before using this component, you need to:
+ * 1. Sign up at https://www.emailjs.com/
+ * 2. Create an email service (Gmail, Outlook, etc.)
+ * 3. Create an email template
+ * 4. Replace the placeholder values below with your actual EmailJS credentials:
+ *    - EMAILJS_PUBLIC_KEY: Your public key from EmailJS dashboard
+ *    - EMAILJS_TEMPLATE_ID: Your template ID from EmailJS dashboard
+ *    - EMAILJS_SERVICE_ID: Your service ID from EmailJS dashboard
+ */
+
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG, getTemplateParams } from "../../config/emailjs";
 
 const ContactSection = () => {
   const [connectForm, setConnectForm] = useState({
@@ -9,6 +24,7 @@ const ContactSection = () => {
   });
   const [connectSubmitting, setConnectSubmitting] = useState(false);
   const [connectSuccess, setConnectSuccess] = useState(false);
+  const [connectError, setConnectError] = useState("");
 
   const handleConnectChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,20 +36,35 @@ const ContactSection = () => {
     e.preventDefault();
     setConnectSubmitting(true);
     setConnectSuccess(false);
-    const res = await fetch("https://formspree.io/f/xdoqzqzq", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: connectForm.name,
-        email: connectForm.email,
-        message: connectForm.message,
-        _replyto: "lidetadmassu217@outlook.com",
-      }),
-    });
-    setConnectSubmitting(false);
-    if (res.ok) {
-      setConnectSuccess(true);
-      setConnectForm({ name: "", email: "", message: "" });
+    setConnectError("");
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = getTemplateParams(
+        connectForm.name,
+        connectForm.email,
+        connectForm.message
+      );
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      if (result.status === 200) {
+        setConnectSuccess(true);
+        setConnectForm({ name: "", email: "", message: "" });
+      } else {
+        setConnectError("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setConnectError("Failed to send message. Please try again.");
+    } finally {
+      setConnectSubmitting(false);
     }
   };
 
@@ -150,10 +181,16 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
-            {/* Connect with me section (replace the form if it exists) */}
+            {/* Success and Error Messages */}
             {connectSuccess && (
-              <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300">
-                Thank you for connecting! Your message has been sent.
+              <div className="mb-6 bg-green-600/20 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg">
+                Thank you for connecting! Your message has been sent
+                successfully.
+              </div>
+            )}
+            {connectError && (
+              <div className="mb-6 bg-red-600/20 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg">
+                {connectError}
               </div>
             )}
             <form className="space-y-6" onSubmit={handleConnectSubmit}>
@@ -167,6 +204,7 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   value={connectForm.name}
                   onChange={handleConnectChange}
                   className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -184,6 +222,7 @@ const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   value={connectForm.email}
                   onChange={handleConnectChange}
                   className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
@@ -203,6 +242,7 @@ const ContactSection = () => {
                   value={connectForm.message}
                   onChange={handleConnectChange}
                   rows={5}
+                  name="message"
                   className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Your message here..."
                   required

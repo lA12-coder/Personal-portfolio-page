@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { Data } from "../../assets/Data/PortfolioData";
 
 type Project = {
   title: string;
@@ -11,46 +12,9 @@ type Project = {
 };
 
 const PortfolioSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Web Development");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const projects = [
-    {
-      title: "E-Commerce Website",
-      category: "Web Development",
-      image: "/ecomerce.png",
-      description:
-        "A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      link: "#", // Add your project link here
-    },
-    {
-      title: "Travel Blog Platform",
-      category: "Full Stack",
-      image: "/blogwebsite.jpg",
-      description:
-        "A content management system for travel bloggers with media management and SEO optimization.",
-      tags: ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
-      link: "#", // Add your project link here
-    },
-    {
-      title:
-        "Ethiopoian University Student's colaboration and learning platform",
-      category: "UI/UX Design",
-      image: "/studyhub2.png", // Set to actual image path in public folder
-      description:
-        "A collaborative platform for Ethiopian university students to share resources, collaborate on projects, and enhance their learning experience.",
-      tags: ["Figma"],
-      link: "https://www.figma.com/proto/QVUtmws7BL7LYN3ZbPkLzq/E-hub-for-University-Students-Across-Ethiopia?node-id=1-60&starting-point-node-id=2343%3A366&t=jOBX5VB1wxgsmhAv-1",
-    },
-    // {
-    //   title: "AI Content Generator",
-    //   category: "Machine Learning",
-    //   image: "placeholder", // Replace with actual image path
-    //   description:
-    //     "A tool that leverages AI to generate marketing content based on brand guidelines and target audience.",
-    //   tags: ["Python", "TensorFlow", "NLP", "API Development"],
-    // },
-  ];
+  const projects = Data;
 
   const categories = [
     "All",

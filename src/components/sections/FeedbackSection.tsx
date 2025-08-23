@@ -18,7 +18,7 @@ const FeedbackSection = () => {
       position: "CEO, TechStart Inc.",
       image: "placeholder", // Replace with actual image path
       rating: 5,
-      text: "Working with this developer was an absolute pleasure. They delivered our website ahead of schedule and exceeded all our expectations. The attention to detail and understanding of our brand was impressive.",
+      text: "Working with Lidet was an absolute pleasure. He delivered our website ahead of schedule and exceeded all our expectations. The attention to detail and understanding of our brand was impressive.",
     },
     {
       name: "Michael Chen",
@@ -57,24 +57,32 @@ const FeedbackSection = () => {
     e.preventDefault();
     setSubmitting(true);
     setSuccess(false);
-    // Send email using Formspree (or similar service)
-    const res = await fetch("https://formspree.io/f/xdoqzqzq", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: form.name,
-        email: form.email,
-        company: form.company,
-        rating: form.rating,
-        feedback: form.feedback,
-        _replyto: "lidetadmassu217@outlook.com",
-      }),
-    });
-    setSubmitting(false);
-    if (res.ok) {
-      setSuccess(true);
-      // Reset form fields using a new object reference to ensure React re-renders
-      setForm({ name: "", email: "", company: "", rating: 0, feedback: "" });
+    try {
+      // Compose feedback message with company and rating
+      const feedbackMessage = `Company/Position: ${form.company}\nRating: ${form.rating}/5\n\n${form.feedback}`;
+      // Use the same EmailJS template as ContactSection
+      const templateParams = {
+        from_name: form.name,
+        from_email: form.email,
+        message: feedbackMessage,
+        to_email: "lidetadmassu217@outlook.com",
+      };
+      // Dynamically import emailjs to avoid issues if not used elsewhere
+      const emailjs = await import("@emailjs/browser");
+      const result = await emailjs.send(
+        "service_anlabpi",
+        "template_feqc99u",
+        templateParams,
+        "LVLZAU7yRWUgjLTmv"
+      );
+      if (result.status === 200) {
+        setSuccess(true);
+        setForm({ name: "", email: "", company: "", rating: 0, feedback: "" });
+      }
+    } catch (error) {
+      setSuccess(false);
+    } finally {
+      setSubmitting(false);
     }
   };
 
