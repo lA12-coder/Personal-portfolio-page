@@ -13,35 +13,21 @@ const FeedbackSection = () => {
   const [success, setSuccess] = useState(false);
 
   const testimonials = [
-    {
-      name: "Sarah Johnson",
-      position: "CEO, TechStart Inc.",
-      image: "placeholder", // Replace with actual image path
-      rating: 5,
-      text: "Working with Lidet was an absolute pleasure. He delivered our website ahead of schedule and exceeded all our expectations. The attention to detail and understanding of our brand was impressive.",
-    },
-    {
-      name: "Michael Chen",
-      position: "Marketing Director, Innovate Co.",
-      image: "placeholder", // Replace with actual image path
-      rating: 5,
-      text: "The portfolio website created for our company has significantly increased our conversion rates. The modern design and intuitive user experience have received countless compliments from our clients.",
-    },
-    {
-      name: "Emily Rodriguez",
-      position: "Founder, Design Studio",
-      image: "placeholder", // Replace with actual image path
-      rating: 5,
-      text: "I've worked with many developers, but few have the combination of technical skill and design sensibility that this professional brings. They transformed our concept into a beautiful, functional reality.",
-    },
-    {
-      name: "David Wilson",
-      position: "Product Manager, SaaS Platform",
-      image: "placeholder", // Replace with actual image path
-      rating: 5,
-      text: "The attention to detail and commitment to quality is unmatched. Our web application not only looks stunning but performs exceptionally well. I highly recommend their services for any digital project.",
-    },
-  ];
+      {
+          name: "Sarah Johnson",
+          position: "CEO, TechStart Inc.",
+          image: "placeholder", // Replace with actual image path
+          rating: 5,
+          text: "Working with Lidet was an absolute pleasure. He delivered our website ahead of schedule and exceeded all our expectations. The attention to detail and understanding of our brand was impressive.",
+      },
+      {
+          name: "Hiwot Ayele",
+          position: "Founder, Elegance Beauty house",
+          image: "placeholder", // Replace with actual image path
+          rating: 4,
+          text: "The webite that Lidet created for me is absolutely stunning. The design is modern and professional, and the functionality is top-notch. I would highly recommend Lidet to anyone looking for a talented and skilled web developer.",
+      }
+      ]
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

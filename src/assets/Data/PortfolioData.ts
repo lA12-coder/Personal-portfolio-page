@@ -7,17 +7,16 @@ export type Data = {
   link?: string;
 };
 
-import FitnessImage from "../img/image.png"
 export const Data = [
-  {
-    title: "E-Commerce Website",
-    category: "Web Development",
-    image: "Img/Web/ecomerce.png",
-    description:
-      "A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.",
-    tags: ["React", "Context API"],
-    link: "#", // Add your project link here
-  },
+    {
+        title: "Beauty House Apponitment Management System",
+        category: "Web Development",
+        image: "Img/Web/beautyhouse.png",
+        description:
+            "A full-featured appointment management website for a women's beauty house",
+        tags: ["React", "Typescript", "Tailwind CSS"],
+        link: "https://elegance-beauty-house.netlify.app/",
+    },
   {
     title: "Fitness Website",
     category: "Web Development",

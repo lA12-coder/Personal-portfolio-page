@@ -25,4 +25,12 @@ export const getTemplateParams = (
   from_email: email,
   message: message,
   to_email: EMAILJS_CONFIG.TO_EMAIL,
+  timestamp: new Date().toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short'
+  }),
 });
