@@ -3,16 +3,16 @@ import { Download, Briefcase, GraduationCap, Award } from "lucide-react";
 const ResumeSection = () => {
   const experiences = [
     {
-      title: "Frontend Developer",
+      title: "Fullstack Developer",
       company: "Geez Geeks Tech solutions",
       period: "2024 - Present",
       description:
-        "Led the development of responsive web applications using React and TypeScript. Implemented modern UI/UX designs and improved application performance by 40%.",
+        "Led the development of responsive web applications using React and TypeScript, and Django for backend. Implemented modern UI/UX designs and robust backend system architecture and improved application performance by 40%.",
     },
     {
       title: "UI/UX Designer & Developer",
       company: "Up work",
-      period: "2020 - 2022",
+      period: "2024 - Present",
       description:
         "Designed and developed user interfaces for various clients across different industries. Created wireframes, prototypes, and implemented frontend solutions.",
     },
@@ -33,6 +33,13 @@ const ResumeSection = () => {
       description:
         "Attending a comprehensive program focusing on software development, algorithms, and data structures. Engaged in various projects to apply theoretical knowledge in practical scenarios.",
     },
+      {
+          degree: "BA Degree in Economics",
+          institution: "Arsi University",
+          period: "2024 - present",
+          description:
+              "Attending a comprehensive class of Economics learning the basic financial principles, financial analysis and business planning",
+      },
   ];
 
   const skills = [
