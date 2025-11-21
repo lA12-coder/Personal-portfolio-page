@@ -38,7 +38,7 @@ const ResumeSection = () => {
   const skills = [
     { name: "HTML/CSS", level: 95 },
     { name: "JavaScript", level: 90 },
-    { name: "React", level: 85 },
+    { name: "React", level: 90 },
     { name: "TypeScript", level: 80 },
     { name: "UI/UX Design", level: 85 },
     { name: "Node.js", level: 50 },
@@ -48,9 +48,11 @@ const ResumeSection = () => {
     { name: "MySQL", level: 80 },
     { name: "Git & GitHub", level: 80 },
     { name: "Agile Methodologies", level: 75 },
-    { name: "RESTful APIs", level: 75 },
+    { name: "RESTfull APIs", level: 75 },
     { name: "Adobe Photoshop", level: 80 },
     { name: "Adobe Illustrator", level: 70 },
+      { name: "Docker", level: 90 },
+
   ];
 
   return (
