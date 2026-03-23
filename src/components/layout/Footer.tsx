@@ -67,7 +67,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/in/lidet-admassu/"
+                href="https://www.linkedin.com/in/lidtech/"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors duration-300"
                 aria-label="LinkedIn"
               >

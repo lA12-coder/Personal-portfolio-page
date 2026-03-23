@@ -70,7 +70,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Experience</h4>
-                  <p className="text-gray-400 text-sm">1+ Years</p>
+                  <p className="text-gray-400 text-sm">2+ Years</p>
                 </div>
               </div>
 
@@ -87,7 +87,7 @@ const AboutSection = () => {
                     Backend Web Development graduate from ALX Africa
                   </p>
                   <p className="text-gray-400 text-sm">
-                    Frontend web development - Coursera (Meta)
+                    Frontend web development - Coursera (Udemy)
                   </p>
                 </div>
               </div>

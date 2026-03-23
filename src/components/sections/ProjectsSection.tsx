@@ -11,13 +11,14 @@ const ProjectsSection = () => {
       technologies: ["React", "Typescript", "Tailwind CSS"],
       link: "https://github.com/lA12-coder/Beauty-House",
     },
-      {
-          title: "Robust Ecommerce Backend API",
-          icon:  <ShoppingCart className="h-10 w-10 text-purple-500" />,
-          description: "A comprehensive e-commerce backend API built with built with Django Rest Framework",
-          technologies: ["Django", "Django Rest Framework", "MySQL", "Swagger UI"],
-          link: "https://github.com/lA12-coder/Ecommerce-API",
-      },
+    {
+      title: "Robust Ecommerce Backend API",
+      icon: <ShoppingCart className="h-10 w-10 text-purple-500" />,
+      description:
+        "A comprehensive e-commerce backend API built with built with Django Rest Framework",
+      technologies: ["Django", "Django Rest Framework", "MySQL", "Swagger UI"],
+      link: "https://github.com/lA12-coder/Ecommerce-API",
+    },
   ];
 
   return (
@@ -33,11 +34,11 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap gap-8 justify-center">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 flex flex-col"
+              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 flex flex-col w-full md:w-1/2 lg:w-1/3"
             >
               <div className="mb-6 p-4 bg-gray-700/30 rounded-xl inline-block">
                 {project.icon}

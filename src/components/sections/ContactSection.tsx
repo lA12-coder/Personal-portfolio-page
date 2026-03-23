@@ -159,7 +159,7 @@ const ContactSection = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/lidet-admassu/"
+                  href="https://www.linkedin.com/in/lidtech/"
                   className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 transition-colors duration-300"
                 >
                   <svg
